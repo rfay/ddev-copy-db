@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+## Description: Copy database from another project
+## Usage: copy-db <sourceprojectname>
+## Example: "ddev copy-db myotherproject"
+
+sourcename=$1
+
+echo "Do you want to copy the database from project '$sourcename'? (y/n)"
+read answer
+if [ "$answer" != "y" ]; then
+    echo "Aborting."
+    exit 0
+fi
+
+ddev export-db --gzip=false $sourcename | ddev import-db
+exit 0

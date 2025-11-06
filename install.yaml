@@ -1,6 +1,6 @@
 name: copy-db
 
-project_files:
-  - docker-compose.copy-db.yaml
-
 ddev_version_constraint: '>= v1.24.3'
+
+global_files:
+  - commands/host/copy-db
